@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+{% block content %}
+ <h1> Liste des données : </h1>
+  {% if count == 0 %}
+    <h2 class="error"> Aucune donnée n'à été trouvée sur la base de donnée</h2>
+  {% else %}
+<a href="/export/{{id}}" style=padding-top:15px;text-decoration:underline;color:black;>Export as CSV</a>
+<table>
+  <tr>
+    <th> Température </th>
+    <th> Timestamp </th>
+    <th> Piece </th>
+    <th> Emplacement </th>
+    <th> Capteur </th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td> {{i.data}} </td>
+    <td> {{i.timestamp}} </td>
+    <td> {{i.piece}} </td>
+    <td> {{i.emplacement}} </td>
+    <td> {{i.capteur_nom}} </td>
+  </tr>
+  {% endfor %}
+  {% endif %}
+</table>
+
+<script>
+
+function refresh(){
+location.reload()
+}
+
+setTimeout(refresh,5000);
+
+</script>
+
+{% endblock content %}

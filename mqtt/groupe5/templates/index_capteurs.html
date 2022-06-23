@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block content %}
+ <h1> Liste des capteurs: </h1>
+  {% if count == 0 %}
+    <h2 class="error"> Aucun capteur n'est présent dans la base de donnée</h2>
+  {% else %}
+<table>
+ {% for i in liste %}
+  <tr>
+    <td>
+        {% load static %}
+      <a href="/capteurs/{{i.id}}/"> {{i.nom}} </a><br><div class="action"><a href="/delete/capteurs/{{i.id}}/"><img style="width:25px" src="{% static 'x.png' %}"></a><br><a href="/update/capteurs/{{i.id}}/"> <img style="width:25px" src="{% static 'pen.png' %}"> </a> </div>
+    </td>
+  </tr>
+ {% endfor %}
+</table>
+ {% endif %}
+<script>
+
+function refresh(){
+location.reload()
+}
+
+setTimeout(refresh,5000);
+
+</script>
+
+{% endblock content %}

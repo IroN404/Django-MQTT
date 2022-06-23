@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<p style=font-size:100px>SAE 24</p>
+<br>
+<p style=font-size:50px>Projet Collaboratif</p>
+<br>
+<br>
+<p style=font-size:30px>Partie Récolte et WEB</p>
+<br>
+<br>
+<br>
+<p style=font-size:30px>Grégory Maitre   |   Louis Claudel   |   Massimo Aureli </p>
+<script>
+var pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+var current = 0;
+
+var keyHandler = function (event) {
+
+	// If the key isn't in the pattern, or isn't the current key in the pattern, reset
+	if (pattern.indexOf(event.key) < 0 || event.key !== pattern[current]) {
+		current = 0;
+		return;
+	}
+
+	// Update how much of the pattern is complete
+	current++;
+
+	// If complete, alert and reset
+	if (pattern.length === current) {
+		current = 0;
+		window.alert('Super Idol');
+		window.location.replace("http://talking-ben.com");
+	}
+
+};
+
+// Listen for keydown events
+document.addEventListener('keydown', keyHandler, false);
+</script>
+{% endblock content %}

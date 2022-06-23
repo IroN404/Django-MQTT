@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+ <html lang="fr">
+  <head>
+   <meta charset="UTF-8">
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'main.css' %}">
+      <link rel="icon" href="{% static 'favicon.ico' %}" />
+   <title> Groupe 5 | MQTT </title>
+  </head>
+  <body>
+    <div class="hold"></div>
+    <nav> <a href="/" style=font-size:40px> SAE24</a> <a href="/donnee"> Liste des données </a> <a href="/capteurs"> Liste des capteurs </a> <a href="/charts"> Graphique des données </a></nav>
+    <div class="content">
+     {% block content %}
+     {% endblock content %}
+    </div>
+  </body>
+ </html>
